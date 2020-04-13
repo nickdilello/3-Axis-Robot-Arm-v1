@@ -12,8 +12,26 @@ Programmed in C for TI MSP430 Launchpad (MSP430G2553).
 
 -three preprogrammed motion paths that correspond to the three pushbuttons
 
--used common cathode RGB LED; no PWM just used red, green, blue
+-used RGB LED; no PWM just used red, green, blue
 
+
+Hardware
+
+-Texas Instruments MSP430G2553
+
+-Breadboard/protoboard and various jumper wires
+
+-servo 1 for base     --> Futaba FP S148
+
+-servo 2 for arm      --> GWS S03N 2BB
+
+-servo 3 for gripper  --> SM S2309S
+
+-standard pushbuttons
+
+-common cathode RGB LED
+
+-various electrical components: 10kΩ resistors (x3), 560Ω resistors (x3), male header pins, etc.
 
 Wiring
 
