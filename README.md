@@ -4,6 +4,7 @@ Designed, constructed, and programmed a 3-axis robot arm for my PHYS 319 final p
 Designed in Solidworks; all parts 3D printed.
 -the .stl files can be found on Thingiverse here: https://www.thingiverse.com/thing:4273165
 
+
 Programmed in C for TI MSP430 Launchpad (MSP430G2553).
 
 -controls three servos independently; used Timer_A0 (channel 1) and Timer_A1 (channel 1 & 2)
@@ -34,6 +35,7 @@ Wiring
 -Blue pin on RGB LED  --> P1.5
 
 -Green pin on RGB LED --> P1.7
+
 
 If you have an questions or suggestions, let me know! Thanks!
 
