@@ -22,3 +22,4 @@ Wiring
 -Green pin on RGB LED --> P1.7
 
 If you have an questions or suggestions, let me know! Thanks!
+
