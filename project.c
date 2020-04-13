@@ -26,15 +26,15 @@ void main(void)
 	P2DIR &= ~BUTTON1 + ~BUTTON2 + ~BUTTON3;				//P2.0, P2.1, P2.3 set as inputs
 
 	//Servo setup
-	P1DIR |= servo1;
-	P2DIR |= (servo2|servo3);
-	P1OUT = 0;
-	P2OUT = 0;	
-	P1SEL |= servo1;
-	P2SEL |= (servo2|servo3);	
+	P1DIR |= servo1;							//P1.6 set as output
+	P2DIR |= (servo2|servo3);						//P2.2 and P2.4 set as outputs
+	P1OUT = 0;								//remaining unused P1.x set to low
+	P2OUT = 0;								//remaining unused P2.x set to low
+	P1SEL |= servo1;							//peripheral module function selected
+	P2SEL |= (servo2|servo3);						//peripheral module function sleected
 
-	TA0CCR0 = 20000-1;							//PWM Period for TA0
-	TA1CCR0 = 20000-1;							//PWM Period for TA1
+	TA0CCR0 = 20000-1;							//PWM Period (20ms) for TA0
+	TA1CCR0 = 20000-1;							//PWM Period (20ms) for TA1
 
 	//Move to home position
 	motionhome();								//perform home motion path
@@ -45,7 +45,7 @@ void main(void)
 	TA1CCTL2 = OUTMOD_7;							//CCR1 reset for TA1.2
 	TA1CTL = TASSEL_2 + MC_1;						//SMCLK, up mode
 
-	//loop to check what push button is pressed
+	//loop to check if push button is pressed...
 	while(1)
 	{
 		if((P2IN&BUTTON1) == 0x01)					//if P2.0 reads high, then...
@@ -87,6 +87,17 @@ void delay()
 	while (i != 0);								//decrement while i is not zero
 }
 
+
+/**************************************************************************************************************	
+	TA0CCR1 is the PWM pulse width for TA0.1 (servo1 - base)
+	TA1CCR1 is the PWM pulse width for TA1.1 (servo2 - arm)
+	TA1CCR2 is the PWM pulse width for TA1.2 (servo3 - gripper)
+	
+	Generally, servos have range from 0deg to 180deg
+	PWM Period is 20ms; pulse width of 1500 (1.5ms) sets servo to neutral position (90 deg)
+	Check data sheet for servo to find min and max pulse width
+**************************************************************************************************************/
+			
 //Robot Arm Home Position
 void motionhome()
 {
