@@ -1,8 +1,7 @@
 # 3-Axis-Robot-Arm-v1
 Designed, constructed, and programmed a 3-axis robot arm for my PHYS 319 final project.
 
-Designed in Solidworks; all parts 3D printed.
--the .stl files can be found on Thingiverse here: https://www.thingiverse.com/thing:4273165
+Designed in Solidworks; all parts 3D printed; the .stl files can be found on Thingiverse here: https://www.thingiverse.com/thing:4273165
 
 
 Programmed in C for TI MSP430 Launchpad (MSP430G2553).
